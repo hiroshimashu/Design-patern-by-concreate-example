@@ -1,0 +1,35 @@
+{
+  "name": "design-pattern-by-concreate-exapmle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/tests/*.spec.+(ts|tsx|js)"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^25.2.2",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.2"
+  }
+}
