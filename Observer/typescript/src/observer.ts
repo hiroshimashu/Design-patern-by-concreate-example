@@ -3,9 +3,9 @@ interface Observer {
 }
 
 interface Observable {
-	on(state: string(listener: Observer): void;
-	off(state: string(listener: Observer): void;
-	notify(): void;
+	on(state: string, reader: Observer): void;
+	//off(state: string, reader: Observer): void;
+	//notify(state: string): void;
 }
 
 type Listener = {
@@ -22,21 +22,29 @@ export class User implements Observer {
 }
 
 export class PassionNews implements Observable {
+	public listeners: Listener[];
 	constructor(public name: string) {
 		this.listeners = [];
 	}
 
-	public on(listener: Listener) {
-		this.listeners.pus(listener);
+	public on(state: string, reader: User) {
+		const listener = this.getListener(state);
+		if (listener && listener.readers) {
+			listener.readers.push(reader);
+		} else {
+			this.listeners.push({
+				state,
+				readers: [reader]
+			});
+		}
 	}
 
-	public of(listener: Listener) {
-		this.listeners.splice(thi(listeners.indexO(listener), 1);
+	public off(state: string, reader: User) {
+		const listener = this.getListener(state);
+		listener && listener.readers.splice(listener.readers.indexOf(reader), 1);
 	}
 
-	public notify() {
-		this.listeners.forEach(listener) =(listener.onNewInformation());
+	private getListener(state: string): Listener | undefined {
+		return this.listeners.find(listener => listener.state === state);
 	}
-
-	private getListener() {}
 }
